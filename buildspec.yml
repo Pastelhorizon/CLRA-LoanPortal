@@ -25,4 +25,4 @@ phases:
 artifacts:
    files:
    # - CollateralsManagementMicroservice/taskdefinition.json
-   - target/portal.war
+   - target/portal.jar
