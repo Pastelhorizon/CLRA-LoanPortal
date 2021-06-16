@@ -45,10 +45,10 @@ public class PortalController {
 	}
 
 	@RequestMapping(path = "/", method = RequestMethod.GET)
-	public ModelAndView redirectLogin() {
+	public String redirectLogin() {
 		LOGGER.info("Starting Portal");
 		LOGGER.info("Ending Portal");
-		return new ModelAndView("Login");
+		return "Login";
 	}
 
 	@RequestMapping(path = "/login", method = RequestMethod.POST)
@@ -65,28 +65,28 @@ public class PortalController {
 					+ "			Your Username / Password is <strong> Wrong!</strong>\r\n" + "		</div>";
 			modelandview.addObject("msg", str);
 			LOGGER.error(e.getMessage());
-			// LOGGER.info("Ending Post Login");
+			LOGGER.info("Ending Post Login");
 			return modelandview;
 		}
 		request.getSession().setAttribute("token", "Bearer " + res.getAuthToken());
 		request.getSession().setAttribute("name", user.getUserid());
-		// LOGGER.info(res.toString());
-		// LOGGER.info("Ending Post Login");
+		LOGGER.info(res.toString());
+		LOGGER.info("Ending Post Login");
 		return viewAllBranch(request);
 	}
 
 	@RequestMapping(path = "/portalbranch", method = RequestMethod.GET)
 	public ModelAndView viewAllBranch(HttpServletRequest request) {
-		// LOGGER.info("Starting View all branch");
+		LOGGER.info("Starting View all branch");
 		ModelAndView modelandview = new ModelAndView("PortalBranch");
-		// LOGGER.info("Ending View all branch");
+		LOGGER.info("Ending View all branch");
 		return modelandview;
 	}
 
 	@RequestMapping(path = "/getloan", method = RequestMethod.GET)
 	public ModelAndView getLoanPage(HttpServletRequest request) {
-		// LOGGER.info("Starting Get all Detail");
-		// LOGGER.info("Ending Get all Detail");
+		LOGGER.info("Starting Get all Detail");
+		LOGGER.info("Ending Get all Detail");
 		return new ModelAndView("GetLoanDetails");
 	}
 
@@ -110,9 +110,9 @@ public class PortalController {
 					cash.setLockperiod(details.getCollateralCashdeposit().getLockperiod());
 					mv.addObject("Type", cash);
 					mv.addObject("Loan", details);
-					// LOGGER.info(cash.toString());
-					// LOGGER.info(details.toString());
-					// LOGGER.info("Ending Get all Detail Post");
+					LOGGER.info(cash.toString());
+					LOGGER.info(details.toString());
+					LOGGER.info("Ending Get all Detail Post");
 					mv.setViewName("DisplayCASH");
 				} catch (NullPointerException e) {
 					DataCollateralRealestate real = new DataCollateralRealestate();
@@ -123,9 +123,9 @@ public class PortalController {
 					real.setRatepersqft(details.getCollateralRealestate().getRatepersqft());
 					mv.addObject("Type", real);
 					mv.addObject("Loan", details);
-					// LOGGER.info(real.toString());
-					// LOGGER.info(details.toString());
-					// LOGGER.info("Ending Get all Detail Post");
+					LOGGER.info(real.toString());
+					LOGGER.info(details.toString());
+					LOGGER.info("Ending Get all Detail Post");
 					mv.setViewName("DisplayREAL");
 				}
 			} catch (Exception e) {
@@ -135,7 +135,7 @@ public class PortalController {
 						+ "			Loan Not<strong> Found!</strong>\r\n" + "		</div>";
 				mv.addObject("msg", str);
 				LOGGER.error(e.getMessage());
-				// LOGGER.info("Ending Get all Detail Post");
+				LOGGER.info("Ending Get all Detail Post");
 			}
 			return mv;
 		} catch (Exception e) {
@@ -146,7 +146,7 @@ public class PortalController {
 					+ "			Your Token has <strong>Expired!</strong>\r\n" + "		</div>";
 			modelandview.addObject("msg", str);
 			LOGGER.error(e.getMessage());
-			// LOGGER.info("Ending Get all Detail Post");
+			LOGGER.info("Ending Get all Detail Post");
 			return modelandview;
 		}
 	}
@@ -159,7 +159,7 @@ public class PortalController {
 			authClient.verifyToken(token);
 			String updateCollateralMarketValue = riskClient.updateCollateralMarketValue(token);
 			LOGGER.info(updateCollateralMarketValue);
-			// LOGGER.info("Ending Get all Risk");
+			LOGGER.info("Ending Get all Risk");
 			return new ModelAndView("GetRiskDetails");
 		} catch (Exception e) {
 			ModelAndView modelandview = new ModelAndView("Login");
@@ -169,7 +169,7 @@ public class PortalController {
 					+ "			Your Token has <strong>Expired!</strong>\r\n" + "		</div>";
 			modelandview.addObject("msg", str);
 			LOGGER.error(e.getMessage());
-			// LOGGER.info("Ending Get all Risk");
+			LOGGER.info("Ending Get all Risk");
 			return modelandview;
 		}
 	}
@@ -182,12 +182,11 @@ public class PortalController {
 		try {
 			authClient.verifyToken(token);
 			try {
-				// riskClient.updateCollateralMarketValue(token);
 				int riskid = Integer.parseInt(request.getParameter("riskid"));
 				DataCollateralRisk risk = riskClient.getCollateralRiskByLoanId(token, riskid);
 				mv.setViewName("DisplayRISK");
 				mv.addObject("risk", risk);
-				// LOGGER.info(risk.toString());
+				LOGGER.info(risk.toString());
 			} catch (Exception e) {
 				String str = "<div class=\"alert alert-danger alert-dismissible text-center\">\r\n"
 						+ "			<button class=\"close\" type=\"button\" data-dismiss=\"alert\">\r\n"
