@@ -12,4 +12,4 @@ phases:
       - echo echo Build completed on `date`
 artifacts:
    files:
-   - target/portal.war
+   - target/portal.jar
