@@ -10,8 +10,8 @@
 	<div class="container">
 		<nav class="navbar navbar-dark bg-dark fixed-bottom">
 			<div class="container">
-				<a href="#" class="navbar-brand" style="font-size: 15px">POD 13 COLLATERAL LOAN
-					MANAGEMENT AND RISK ASSESSMENT &copy; 2020</a>
+				<a href="#" class="navbar-brand" style="font-size: 15px">COLLATERAL
+					MANAGEMENT AND RISK ASSESSMENT &copy; 2021</a>
 			</div>
 		</nav>
 	</div>
