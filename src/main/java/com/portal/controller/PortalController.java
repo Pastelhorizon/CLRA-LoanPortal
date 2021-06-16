@@ -45,10 +45,10 @@ public class PortalController {
 	}
 
 	@RequestMapping(path = "/", method = RequestMethod.GET)
-	public String redirectLogin() {
+	public ModelAndView redirectLogin() {
 		LOGGER.info("Starting Portal");
 		LOGGER.info("Ending Portal");
-		return "Login";
+		return new ModelAndView("Login");
 	}
 
 	@RequestMapping(path = "/login", method = RequestMethod.POST)

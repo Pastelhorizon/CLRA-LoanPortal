@@ -91,8 +91,8 @@ uri="http://www.springframework.org/tags/form" prefix="form"%>
       <nav class="navbar navbar-dark bg-dark fixed-bottom">
         <div class="container">
           <a href="#" class="navbar-brand"
-            >POD 13 COLLATERAL LOAN MANAGEMENT AND RISK ASSESSMENT &copy;
-            2020</a
+            >COLLATERAL LOAN MANAGEMENT AND RISK ASSESSMENT &copy;
+            2021</a
           >
         </div>
       </nav>
