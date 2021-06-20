@@ -10,10 +10,12 @@ phases:
    post_build:
       commands:
       - echo Build completed on `date`
-      - echo Creating the source bundle with the Procfile
-      - mv target/portal.war .
-      - zip source_bundle.zip portal.war Procfile
-      - echo source_bundle creation completed
+      # - echo Creating the source bundle with the Procfile
+      # - mv target/portal.war .
+      # - zip source_bundle.zip portal.war Procfile
+      # - echo source_bundle creation completed
 artifacts:
    files:
-   - ./source_bundle.zip
+   # - ./source_bundle.zip
+   - Procfile
+   - target/portal.war
