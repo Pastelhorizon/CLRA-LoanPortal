@@ -30,7 +30,7 @@
 		<div class="form-group ">
 			<form method="post" action="postrisk">
 
-				<label><b>ENTER RISK ID</b></label> <input type="number"
+				<label><b>ENTER LOAN ID</b></label> <input type="number"
 					class="form-control" id="riskid" name="riskid" min="1"
 					required="required"><br>
 				<button type="submit" class="btn btn-success btn-block text-white">Submit</button>
