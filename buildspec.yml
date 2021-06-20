@@ -9,7 +9,10 @@ phases:
       - mvn install
    post_build:
       commands:
-      - echo echo Build completed on `date`
+      - echo Build completed on `date`
+      - echo Creating the source bundle with the Procfile
+      - zip -r source_bundle.zip target/portal.jar Procfile
+      - echo source_bundle creation completed
 artifacts:
    files:
-   - target/portal.jar
+   - source_bundle.zip
