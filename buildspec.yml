@@ -11,7 +11,8 @@ phases:
       commands:
       - echo Build completed on `date`
       - echo Creating the source bundle with the Procfile
-      - zip -r source_bundle.zip target/portal.war Procfile
+      - mv target/portal.war .
+      - zip -r source_bundle.zip portal.war Procfile
       - echo source_bundle creation completed
 artifacts:
    files:

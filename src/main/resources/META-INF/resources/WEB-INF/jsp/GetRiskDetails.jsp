@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 	<link rel="stylesheet" href="style.css" type="text/css">
-<title>ENTER RISK DETAILS</title>
+<title>ENTER LOAN DETAILS FOR RISK DETAILS</title>
 </head>
 <body class="bg-light" onload="myFunction()">
 	<div id="loading"></div>
