@@ -52,7 +52,7 @@
 			<div class="input-group mb-3 col">
 				<div class="input-group-prepend">
 					<button class="input-group-text" href="#">
-						<b>COLLATERAL VALUE</b>
+						<b>LOAN VALUE</b>
 					</button>
 				</div>
 				<input class="form-control" type="text" readonly="readonly"
